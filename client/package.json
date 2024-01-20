@@ -1,0 +1,25 @@
+{
+  "name": "mentat-client",
+  "version": "1.0.0",
+  "description": "React frontend for mental math trainer",
+  "main": "src/index.ts",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/jpb7/Mentat.git"
+  },
+  "keywords": [
+    "education",
+    "math",
+    "arithmetic",
+    "drills"
+  ],
+  "author": "Jacob Bentley",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jpb7/Mentat/issues"
+  },
+  "homepage": "https://github.com/jpb7/Mentat#readme"
+}
