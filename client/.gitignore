@@ -1,0 +1,11 @@
+# Dependencies
+node_modules/
+
+# Webpack output
+/dist
+
+# Environment files
+.env*
+
+# TypeScript cache
+*.tsbuildinfo
