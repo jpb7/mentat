@@ -1,0 +1,30 @@
+:root {
+  --background-color: #333;
+  --text-color: #fff;
+}
+
+body {
+  background-color: var(--background-color);
+  margin: 0;
+  border: none;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+h1 {
+  font-family: 'Roboto', sans-serif;
+  color: var(--text-color);
+  opacity: 0;
+  animation: fadeIn 1s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
