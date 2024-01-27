@@ -1,4 +1,5 @@
 const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
@@ -11,14 +12,19 @@ module.exports = {
 
   module: {
     rules: [
+      
+      //  TypeScript loader (doesn't check types: use `npm run check`)
       {
         test: /\.(ts|tsx)$/,
-        use: 'babel-loader', // perform type-checking with `npm run check`
+        use: 'babel-loader',
         exclude: /node_modules/
       },
-      { test: /\.module\.css$/,
+      
+      //  CSS loaders (extracts CSS into separate files instead of bundle.js)
+      {
+        test: /\.module\.css$/,
         use: [
-          'style-loader',
+          MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
             options: {
@@ -29,17 +35,22 @@ module.exports = {
           },
         ],
       },
-      { test: /\.css$/,
+      {
+        test: /\.css$/,
         exclude: /\.module\.css$/,
-        use: ['style-loader', 'css-loader'],
+        use: [MiniCssExtractPlugin.loader, 'css-loader'],
       },
     ],
   },
 
   plugins: [
+    new MiniCssExtractPlugin({
+      filename: '[name].css',
+      chunkFilename: '[id].css',
+    }),
     new HtmlWebpackPlugin({
       template: './public/index.html'
-    })
+    }),
   ],
 
   resolve: {
@@ -57,3 +68,4 @@ module.exports = {
     historyApiFallback: true,
   },
 };
+
