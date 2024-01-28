@@ -1,12 +1,14 @@
 :root {
-  --background-color: #333;
-	--title-color: #d9d9d9;
-	--title-bg: #1e1e1e;
-  --text-color: #fff;
+  --bg: #333;
+  --item-bg: #d9d9d9;
+  --font: #1e1e1e;
+  --hover-bg: #f6f6f6;
+  --box-shadow: rgba(0, 0, 0, 0.3);
+  --text-shadow: rgba(0, 0, 0, 0.2);
 }
 
 body {
-  background-color: var(--background-color);
+  background-color: var(--bg);
   margin: 0;
   border: none;
 }
@@ -22,8 +24,8 @@ body {
 .title {
 	font-family: 'Roboto', sans-serif;
 	font-size: 128px;
-	color: var(--title-color);
-	background-color: var(--title-bg);
+	color: var(--item-bg);
+	background-color: var(--font);
 	padding: 10px 120px;
 	border-radius: 15px;
 	margin-top: 50px;
@@ -41,14 +43,11 @@ body {
 }
 
 @keyframes pulse {
-  0% {
-    box-shadow: 0 0 10px 5px var(--title-color);
+  0%, 100% {
+    box-shadow: 0 0 10px 5px var(--item-bg);
   }
   50% {
-    box-shadow: 0 0 18px 10px var(--title-color);
-  }
-  100% {
-    box-shadow: 0 0 10px 5px var(--title-color);
+    box-shadow: 0 0 18px 10px var(--item-bg);
   }
 }
 
