@@ -14,6 +14,7 @@
   align-items: center;
   padding: 20px;
   background-color: var(--bg);
+	z-index: 1;
 }
 
 .menuItem {
@@ -27,26 +28,19 @@
   font-family: 'Roboto', sans-serif;
   font-weight: bold;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  box-shadow: 0 10px 15px 0 var(--box-shadow);
+  box-shadow: 0 8px 12px 0 var(--box-shadow);
   text-shadow: 1px 1px 2px var(--text-shadow);
-}
-
-.menuItem:not(:hover) {
-  transition: box-shadow 0.3s ease-out;
+	transition: transform 0.0005s ease-in-out;
+	transition: box-shadow 0.005s ease-in-out;
+	/*transition: border-color 0.075s ease-in;*/
+  /*transition: background-color 0.075s ease-in;*/
 }
 
 .menuItem:hover {
-  background-color: var(--hover-bg);
+  background-color: var(--item-bg);
+	/*border-color: var(--hover-bg);*/
+	text-shadow: none;
   transform: scale(1.025);
-  animation: shadow-pulse 1s infinite alternate ease-in-out;
+	box-shadow: 0 0 8px 5px var(--item-bg);
 }
 
-@keyframes shadow-pulse {
-  from {
-    box-shadow: 0 10px 15px 0 var(--box-shadow);
-  }
-  to {
-    box-shadow: 0 15px 25px 0 var(--hover-shadow);
-  }
-}

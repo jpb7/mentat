@@ -12,3 +12,4 @@ const MainMenu: React.FC = () => {
 };
 
 export default MainMenu;
+

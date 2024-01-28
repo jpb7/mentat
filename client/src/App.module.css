@@ -1,5 +1,7 @@
 :root {
   --background-color: #333;
+	--title-color: #d9d9d9;
+	--title-bg: #1e1e1e;
   --text-color: #fff;
 }
 
@@ -11,20 +13,42 @@ body {
 
 .container {
   display: flex;
+	flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+	height: 85vh;
 }
 
-h1 {
-  font-family: 'Roboto', sans-serif;
-  color: var(--text-color);
-  opacity: 0.25;
-  animation: fadeIn 0.75s ease-in-out forwards;
+.title {
+	font-family: 'Roboto', sans-serif;
+	font-size: 128px;
+	color: var(--title-color);
+	background-color: var(--title-bg);
+	padding: 10px 120px;
+	border-radius: 15px;
+	margin-top: 50px;
+	margin-bottom: 10px;
+	cursor: pointer;
+	z-index: 2;
+	transition: transform 0.075s ease-in;
+	animation: pulse 2s infinite;
 }
 
-@keyframes fadeIn {
-  to {
-    opacity: 1;
+.title:hover {
+	transform: scale(1.025);
+	/*color: #f6f6f6;*/
+	/*animation: pulse 2s infinite;*/
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 10px 5px var(--title-color);
+  }
+  50% {
+    box-shadow: 0 0 18px 10px var(--title-color);
+  }
+  100% {
+    box-shadow: 0 0 10px 5px var(--title-color);
   }
 }
+
