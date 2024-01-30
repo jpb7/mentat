@@ -21,33 +21,16 @@ body {
 	height: 85vh;
 }
 
-.title {
-	font-family: 'Roboto', sans-serif;
-	font-size: 128px;
-	color: var(--item-bg);
-	background-color: var(--font);
-	padding: 10px 120px;
-	border-radius: 15px;
-	margin-top: 50px;
-	margin-bottom: 10px;
-	cursor: pointer;
+.titleLink {
+	text-decoration: none;
+	color: inherit;
 	z-index: 2;
-	transition: transform 0.075s ease-in;
-	animation: pulse 2s infinite;
 }
 
-.title:hover {
-	transform: scale(1.025);
-	/*color: #f6f6f6;*/
-	/*animation: pulse 2s infinite;*/
+.titleLink:hover,
+.titleLink:active,
+.titleLink:focus {
+	text-decoration: none;
+	color: inherit;
+	z-index: 2;
 }
-
-@keyframes pulse {
-  0%, 100% {
-    box-shadow: 0 0 10px 5px var(--item-bg);
-  }
-  50% {
-    box-shadow: 0 0 18px 10px var(--item-bg);
-  }
-}
-

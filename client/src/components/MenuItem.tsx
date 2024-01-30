@@ -1,5 +1,4 @@
 import React from 'react';
-//import { useNavigate } from 'react-router-dom';
 import styles from './MenuItem.module.css';
 
 type MenuItemProps = {
@@ -8,15 +7,8 @@ type MenuItemProps = {
 }
 
 const MenuItem: React.FC<MenuItemProps> = ({ label }) => { // {drillId, label}
-	//let navigate = useNavigate();
-
-	const navigateToDrill = () => {
-		console.log('Not yet ready for prime time!');
-		//navigate(`/drill/${drillId}`);
-	};
-
 	return (
-		<button className={styles.menuItem} onClick={navigateToDrill}>
+		<button className={styles.menuItem}>
 			{label}
 		</button>
 	);
