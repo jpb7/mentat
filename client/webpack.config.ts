@@ -1,11 +1,11 @@
 import path from 'path';
 import { Configuration as WebpackConfiguration, DefinePlugin } from 'webpack';
-import { Configuration as WebpackDevServerConfiguration } from 'webpack-dev-server';
+import { Configuration as DevServerConfiguration } from 'webpack-dev-server';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 
 interface Configuration extends WebpackConfiguration {
-  devServer?: WebpackDevServerConfiguration;
+  devServer?: DevServerConfiguration;
 }
 
 const config: Configuration = {
@@ -50,12 +50,15 @@ const config: Configuration = {
   },
 
   plugins: [
+		new DefinePlugin({
+			'__REACT_DEVTOOLS_GLOBAL_HOOK__': '({ isDisabled: true })'
+		}),
+    new HtmlWebpackPlugin({
+      template: './public/index.html',
+    }),
     new MiniCssExtractPlugin({
       filename: '[name].css',
       chunkFilename: '[id].css',
-    }),
-    new HtmlWebpackPlugin({
-      template: './public/index.html'
     }),
   ],
 
