@@ -1,0 +1,17 @@
+.drillBox {
+	height: 325px;
+	width: 505px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 72px;
+	font-family: 'Roboto', sans-serif;
+	background-color: var(--item-bg);
+  color: var(--font);
+	border-radius: 20px;
+  border: 5px solid var(--font);
+  box-shadow: 0 8px 12px 0 var(--box-shadow);
+  text-shadow: 1px 1px 2px var(--text-shadow);
+	margin-top: 30px;
+}
+
