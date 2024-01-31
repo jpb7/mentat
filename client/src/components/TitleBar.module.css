@@ -15,6 +15,7 @@
 
 .title:hover {
 	transform: scale(1.025);
+	color: var(--hover-bg);
 }
 
 @keyframes pulse {

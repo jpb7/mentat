@@ -9,9 +9,8 @@
 	background-color: var(--item-bg);
   color: var(--font);
 	border-radius: 20px;
-  border: 5px solid var(--font);
-  box-shadow: 0 8px 12px 0 var(--box-shadow);
-  text-shadow: 1px 1px 2px var(--text-shadow);
+  box-shadow: 0 6px 10px 0 var(--box-shadow);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 	margin-top: 30px;
 }
 

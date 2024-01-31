@@ -19,7 +19,7 @@
 
 .menuItem:hover {
   background-color: var(--item-bg);
-	/*border-color: var(--hover-bg);*/
+	border-color: var(--hover-bg);
 	text-shadow: none;
   transform: scale(1.025);
 	box-shadow: 0 0 8px 5px var(--item-bg);
