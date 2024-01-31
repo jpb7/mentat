@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "description": "React frontend for mental math trainer",
   "main": "src/index.tsx",
+  "private": true,
   "scripts": {
     "build": "webpack",
-    "start": "webpack serve",
+    "start": "webpack serve --config webpack-start.js",
     "check": "tsc --noEmit"
   },
   "repository": {
@@ -34,10 +35,14 @@
     "@babel/preset-env": "^7.23.8",
     "@babel/preset-react": "^7.23.3",
     "@babel/preset-typescript": "^7.23.3",
+    "@babel/register": "^7.23.7",
     "@types/css-modules": "^1.0.5",
+    "@types/node": "^20.11.13",
     "@types/react": "^18.2.48",
     "@types/react-dom": "^18.2.18",
     "@types/react-router-dom": "^5.3.3",
+    "@types/webpack": "^5.28.5",
+    "@types/webpack-dev-server": "^4.7.2",
     "babel-loader": "^9.1.3",
     "css-loader": "^6.9.1",
     "html-webpack-plugin": "^5.6.0",
@@ -48,3 +53,4 @@
     "webpack-dev-server": "^4.15.1"
   }
 }
+

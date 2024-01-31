@@ -1,8 +1,14 @@
-const path = require('path');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+import path from 'path';
+import { Configuration as WebpackConfiguration, DefinePlugin } from 'webpack';
+import { Configuration as WebpackDevServerConfiguration } from 'webpack-dev-server';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
 
-module.exports = {
+interface Configuration extends WebpackConfiguration {
+  devServer?: WebpackDevServerConfiguration;
+}
+
+const config: Configuration = {
   entry: './src/index.tsx',
 
   output: {
@@ -66,6 +72,11 @@ module.exports = {
     open: true,
     hot: true,
     historyApiFallback: true,
+    client: {
+      logging: 'warn',
+    },
   },
 };
+
+export default config;
 
