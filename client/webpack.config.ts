@@ -13,7 +13,7 @@ const config: Configuration = {
 
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js'
+    filename: 'main.js',
   },
 
   module: {
@@ -55,6 +55,7 @@ const config: Configuration = {
 		}),
     new HtmlWebpackPlugin({
       template: './public/index.html',
+			favicon: './public/favicon.ico',
     }),
     new MiniCssExtractPlugin({
       filename: '[name].css',
