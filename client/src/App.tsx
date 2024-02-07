@@ -1,10 +1,15 @@
 import React from 'react';
 import { BrowserRouter as Router, Link, Route, Routes } from 'react-router-dom';
-import DrillBox from './components/DrillBox';
-import DrillButton from './components/DrillButton';
-import MainMenu from './components/MainMenu';
 import TitleBar from './components/TitleBar';
+import MainMenu from './components/MainMenu';
+import Drill from './components/Drill';
 import styles from './App.module.css';
+
+const n = 3;
+const exercises = Array.from({ length: n }, (_, i) => ({
+  path: `/exercise${i + 1}`,
+  drillId: `exercise${i + 1}`
+}));
 
 const App: React.FC = () => {
   return (
@@ -15,26 +20,18 @@ const App: React.FC = () => {
         </Link>
 
         <Routes>
-          <Route path='/' element={<MainMenu />} />
-          <Route path='/exercise1' element={
-            <>
-              <DrillBox drillId='exercise1' />
-              <DrillButton />
-            </>
-          } />
-          <Route path='/exercise2' element={
-            <>
-              <DrillBox drillId='exercise2' />
-              <DrillButton />
-            </>
-          } />
-          <Route path='/exercise3' element={
-            <>
-              <DrillBox drillId='exercise3' />
-              <DrillButton />
-            </>
-          } />
-        </Routes>
+          <Route path='/' element={
+            <MainMenu />
+          }/>
+          {exercises.map(exercise => (
+            <Route
+              key={exercise.path}
+              path={exercise.path}
+              element={
+                <Drill drillId={exercise.drillId} />
+              }/>
+          ))}
+         </Routes>
 
       </div>
     </Router>
