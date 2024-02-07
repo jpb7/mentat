@@ -5,7 +5,7 @@
 	background-color: #3a7735;
 	color: var(--item-bg);
 	border-radius: 20px;
-	border: 5px solid var(--font);
+	border: 5px solid var(--item-bg);
 	font-family: 'Roboto', sans-serif;
 	font-size: 32px;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
