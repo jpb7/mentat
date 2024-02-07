@@ -19,6 +19,7 @@
 
 .menuItem:hover {
   background-color: var(--item-bg);
+	color: var(--bg);
 	border-color: var(--hover-bg);
 	text-shadow: none;
   transform: scale(1.025);
