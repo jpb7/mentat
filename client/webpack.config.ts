@@ -9,7 +9,7 @@ interface Configuration extends WebpackConfiguration {
 }
 
 const config: Configuration = {
-  entry: './src/index.tsx',
+  entry: path.resolve(__dirname, 'src', 'index.tsx'),
 
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -50,12 +50,12 @@ const config: Configuration = {
   },
 
   plugins: [
-		new DefinePlugin({
-			'__REACT_DEVTOOLS_GLOBAL_HOOK__': '({ isDisabled: true })'
-		}),
+    new DefinePlugin({
+      '__REACT_DEVTOOLS_GLOBAL_HOOK__': '({ isDisabled: true })'
+    }),
     new HtmlWebpackPlugin({
       template: './public/index.html',
-			favicon: './public/favicon.ico',
+      favicon: './public/favicon.ico',
     }),
     new MiniCssExtractPlugin({
       filename: '[name].css',
@@ -64,6 +64,9 @@ const config: Configuration = {
   ],
 
   resolve: {
+    alias: {
+      Components: path.resolve(__dirname, 'src', 'components')
+    },
     extensions: ['.tsx', '.ts', '.js']
   },
 

@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Link, Route, Routes } from 'react-router-dom';
-import TitleBar from './components/TitleBar';
-import MainMenu from './components/MainMenu';
-import Drill from './components/Drill';
+import TitleBar from 'Components/TitleBar';
+import MainMenu from 'Components/MainMenu';
+import Drill from 'Components/Drill';
 import styles from './App.module.css';
 
 const n = 3;
@@ -21,7 +21,7 @@ const App: React.FC = () => {
 
         <Routes>
           <Route path='/' element={
-            <MainMenu />
+            <MainMenu exercises={exercises} />
           }/>
           {exercises.map(exercise => (
             <Route
