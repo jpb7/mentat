@@ -1,8 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Link, Route, Routes } from 'react-router-dom';
-import TitleBar from 'Components/TitleBar';
-import MainMenu from 'Components/MainMenu';
-import Drill from 'Components/Drill';
+import { Drill, MainMenu, TitleBar } from 'Components';
 import styles from './App.module.css';
 
 const n = 3;
@@ -24,9 +22,7 @@ const App: React.FC = () => {
             <MainMenu exercises={exercises} />
           }/>
           {exercises.map(exercise => (
-            <Route
-              key={exercise.path}
-              path={exercise.path}
+            <Route key={exercise.path} path={exercise.path}
               element={
                 <Drill drillId={exercise.drillId} />
               }/>
