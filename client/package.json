@@ -6,8 +6,15 @@
   "private": true,
   "scripts": {
     "build": "webpack",
+    "check": "tsc --noEmit",
     "start": "webpack serve --config webpack-start.js",
-    "check": "tsc --noEmit"
+    "test": "jest"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(css|less|scss|sass)$": "identity-obj-proxy"
+    },
+    "testEnvironment": "jsdom"
   },
   "repository": {
     "type": "git",
@@ -50,9 +57,10 @@
     "babel-loader": "^9.1.3",
     "css-loader": "^6.9.1",
     "html-webpack-plugin": "^5.6.0",
+    "identity-obj-proxy": "^3.0.0",
     "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
     "mini-css-extract-plugin": "^2.7.7",
-    "ts-jest": "^29.1.2",
     "typescript": "^5.3.3",
     "webpack": "^5.89.0",
     "webpack-cli": "^5.1.4",
