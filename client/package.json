@@ -6,9 +6,8 @@
   "private": true,
   "scripts": {
     "build": "webpack",
-    "check": "tsc --noEmit",
     "start": "webpack serve --config webpack-start.js",
-    "test": "jest"
+    "test": "tsc --noEmit && jest"
   },
   "babel": {
     "presets": [
