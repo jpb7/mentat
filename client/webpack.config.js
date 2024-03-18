@@ -1,14 +1,9 @@
-import path from 'path';
-import { Configuration as WebpackConfiguration, DefinePlugin } from 'webpack';
-import { Configuration as DevServerConfiguration } from 'webpack-dev-server';
-import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
+const path = require('path');
+const { DefinePlugin } = require('webpack');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-interface Configuration extends WebpackConfiguration {
-  devServer?: DevServerConfiguration;
-}
-
-const config: Configuration = {
+module.exports = {
   entry: path.resolve(__dirname, 'src', 'index.tsx'),
 
   output: {
@@ -84,6 +79,4 @@ const config: Configuration = {
     },
   },
 };
-
-export default config;
 
