@@ -1,14 +1,27 @@
 import React from 'react';
 import styles from './DrillBox.module.css';
 
-type DrillBoxProps = {
-  drillId: string;
-}
+type DrillObject = {
+  number1: number;
+  number2: number;
+  operator: string;
+  solution: number;
+};
 
-const DrillBox: React.FC<DrillBoxProps> = ({ drillId }) => {
+type DrillBoxProps = {
+  drill: DrillObject | null;
+};
+
+const DrillBox: React.FC<DrillBoxProps> = ({ drill }) => {
+  if (!drill) {
+    return <div className={styles.drillBox}></div>;
+  }
+
+  const { number1, number2, operator } = drill;
+
   return (
     <div className={styles.drillBox}>
-      <p>{drillId}</p>
+      <p>{number1} {operator} {number2}</p>
     </div>
   );
 };
