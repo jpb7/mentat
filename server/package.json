@@ -1,0 +1,35 @@
+{
+  "name": "mentat-server",
+  "version": "1.0.0",
+  "description": "Express backend for mental math trainer",
+  "main": "server.ts",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/jpb7/Mentat.git"
+  },
+  "keywords": [
+    "education",
+    "math",
+    "arithmetic",
+    "drills"
+  ],
+  "author": "Jacob Bentley",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jpb7/Mentat/issues"
+  },
+  "homepage": "https://github.com/jpb7/Mentat#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.1"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "typescript": "^5.4.3"
+  }
+}
