@@ -1,6 +1,6 @@
 # mentat
 
-A mental math trainer with drills based on the book [Secrets of Mental Math](https://www.amazon.com/Secrets-Mental-Math-Mathemagicians-Calculation/dp/0307338401) by Arthur Benjamin and Michael Shermer.
+A mental math trainer with (forthcoming) drills based on the book [Secrets of Mental Math](https://www.amazon.com/Secrets-Mental-Math-Mathemagicians-Calculation/dp/0307338401) by Arthur Benjamin and Michael Shermer.
 
 Current state of the UI:
 
