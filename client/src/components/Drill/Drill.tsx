@@ -24,7 +24,7 @@ type DrillProps = {
 const calculate: { [key: string]: Function } = {
   '+': (a: number, b: number) => a + b,
   '-': (a: number, b: number) => a - b,
-  '*': (a: number, b: number) => (b === 1) ? a * (b+1) : a * b,
+  '*': (a: number, b: number) => a * b,
   '/': (a: number, b: number) => a / b
 };
 
@@ -43,7 +43,9 @@ const generateDrill = (template: DrillTemplate): DrillObject => {
 
   let a: number = getRandomNumber(digits1);
   let b: number = getRandomNumber(digits2);
-  [a, b] = [Math.max(a, b), Math.min(a, b)]
+
+  [a, b] = [Math.max(a, b), Math.min(a, b)];
+  (operator === '*' && b === 1) ? b++ : b;
 
   return { 
     number1: a,
