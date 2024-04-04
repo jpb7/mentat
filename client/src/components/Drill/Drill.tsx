@@ -19,49 +19,74 @@ type DrillProps = {
   drillId: string;
 };
 
-const operations: { [key: string]: Function } = {
+//  Map operators to functions that return solutions
+//
+const calculate: { [key: string]: Function } = {
   '+': (a: number, b: number) => a + b,
   '-': (a: number, b: number) => a - b,
-  '*': (a: number, b: number) => a * b,
-  '/': (a: number, b: number) => a / b // TODO: handle division by zero
+  '*': (a: number, b: number) => (b === 1) ? a * (b+1) : a * b,
+  '/': (a: number, b: number) => a / b
 };
 
+//  Generate a random number within specified number of digits
+//
 const getRandomNumber = (digits: number): number => {
   const min = Math.pow(10, digits - 1);
   const max = Math.pow(10, digits) - 1;
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-const performOperation = (num1: number, num2: number, operator: string) => {
-  const a = Math.max(num1, num2);
-  const b = Math.min(num1, num2);
-  return operations[operator](a, b);
-} 
-
+//  Generate an arithmetic problem based on a template
+//
 const generateDrill = (template: DrillTemplate): DrillObject => {
   const { digits1, digits2, operator } = template;
 
-  const number1 = getRandomNumber(digits1);
-  const number2 = getRandomNumber(digits2);
-  const solution = performOperation(number1, number2, operator);
+  let a: number = getRandomNumber(digits1);
+  let b: number = getRandomNumber(digits2);
+  [a, b] = [Math.max(a, b), Math.min(a, b)]
 
-  return { number1, number2, operator, solution };
+  return { 
+    number1: a,
+    number2: b,
+    operator: operator,
+    solution: calculate[operator](a, b)
+  };
 };
 
 const Drill: React.FC<DrillProps> = ({ drillId }) => {
+  const [template, setTemplate] = useState<DrillTemplate | null>(null);
   const [drill, setDrill] = useState<DrillObject | null>(null);
+  const [showSolution, setShowSolution] = useState(false);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/${drillId}`)
-      .then(response => response.json())
-      .then(template => setDrill(generateDrill(template)))
-      .catch(error => console.error('Failed to retrieve drill: ', error));
+    fetch(`http://localhost:3000/${drillId}`) // TODO: make .env
+      .then(
+        response => response.json()
+      )
+      .then(
+        fetchedTemplate => {
+          setTemplate(fetchedTemplate);
+          setDrill(generateDrill(fetchedTemplate));
+      })
+      .catch(
+        error => console.error('Failed to retrieve drill: ', error)
+      );
   }, [drillId]);
+
+  const handleNewDrill = () => {
+    if (!showSolution && drill) {
+      setShowSolution(true);
+    }
+    else if (template) {
+      setDrill(generateDrill(template));
+      setShowSolution(false);
+    }
+  };
 
   return (
     <>
-      <DrillBox drill={drill} />
-      <DrillButton />
+      <DrillBox drill={drill} showSolution={showSolution} />
+      <DrillButton onClick={handleNewDrill} showSolution={showSolution} />
     </>
   );
 };

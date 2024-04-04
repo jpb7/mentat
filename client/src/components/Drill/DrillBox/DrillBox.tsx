@@ -10,18 +10,23 @@ type DrillObject = {
 
 type DrillBoxProps = {
   drill: DrillObject | null;
+  showSolution: boolean;
 };
 
-const DrillBox: React.FC<DrillBoxProps> = ({ drill }) => {
+const DrillBox: React.FC<DrillBoxProps> = ({ drill, showSolution }) => {
   if (!drill) {
     return <div className={styles.drillBox}></div>;
   }
 
-  const { number1, number2, operator } = drill;
+  const { number1, number2, operator, solution } = drill;
 
   return (
     <div className={styles.drillBox}>
-      <p>{number1} {operator} {number2}</p>
+      {
+        (showSolution)
+          ? <p>{solution}</p>
+          : <p>{number1} {operator} {number2}</p>
+      }
     </div>
   );
 };
