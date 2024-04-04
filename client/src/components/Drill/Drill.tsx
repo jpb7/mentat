@@ -19,6 +19,15 @@ type DrillProps = {
   drillId: string;
 };
 
+//  Map plaintext operators to their Unicode equivalents
+//
+const toUnicode: { [key: string]: string } = {
+  '+': '\u002B',
+  '-': '\u2212',
+  '*': '\u00D7',
+  '/': '\u00F7'
+};
+
 //  Map operators to functions that return solutions
 //
 const calculate: { [key: string]: Function } = {
@@ -50,7 +59,7 @@ const generateDrill = (template: DrillTemplate): DrillObject => {
   return { 
     number1: a,
     number2: b,
-    operator: operator,
+    operator: toUnicode[operator],
     solution: calculate[operator](a, b)
   };
 };
