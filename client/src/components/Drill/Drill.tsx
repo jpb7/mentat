@@ -1,23 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import DrillBox from './DrillBox';
 import DrillButton from './DrillButton';
-
-type DrillTemplate = {
-  digits1: number;
-  digits2: number;
-  operator: string;
-};
-
-type DrillObject = {
-  number1: number;
-  number2: number;
-  operator: string;
-  solution: number;
-}
-
-type DrillProps = {
-  drillId: string;
-};
+import { DrillObject, DrillProps, DrillTemplate } from 'Types';
 
 //  Map plaintext operators to their Unicode equivalents
 //

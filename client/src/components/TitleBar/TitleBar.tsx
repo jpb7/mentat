@@ -1,9 +1,6 @@
 import React from 'react';
+import { TitleBarProps } from 'Types';
 import styles from './TitleBar.module.css';
-
-type TitleBarProps = {
-	title: string;
-}
 
 const TitleBar: React.FC<TitleBarProps> = ({ title }) => {
 	return (

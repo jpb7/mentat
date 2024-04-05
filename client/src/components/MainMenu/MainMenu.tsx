@@ -1,11 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import MenuItem from './MenuItem';
+import { MainMenuProps } from 'Types';
 import styles from './MainMenu.module.css';
-
-type MainMenuProps = {
-  exercises: { path: string; drillId: string }[];
-};
 
 const MainMenu: React.FC<MainMenuProps> = ({ exercises }) => {
   return (

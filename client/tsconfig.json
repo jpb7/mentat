@@ -2,7 +2,8 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "Components": ["src/components"]
+      "Components": ["src/components"],
+      "Types": ["src/types"]
     },
     "jsx": "react",
     "target": "es2016",                                  /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */
