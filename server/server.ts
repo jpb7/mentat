@@ -8,6 +8,10 @@ const port = 3000;
 app.use(cors());
 app.use(express.json());
 
+app.get('/', (_req: Request, res: Response) => {
+  res.json(Object.keys(templates));
+});
+
 app.get('/:drillId', (req: Request, res: Response) => {
   const { drillId } = req.params;
   const drillTemplate = templates[drillId];

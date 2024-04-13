@@ -1,11 +1,18 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Link, Route, Routes } from 'react-router-dom';
 import { Drill, MainMenu, TitleBar } from 'Components';
 import styles from './App.module.css';
 
-const drillIds = Array.from({ length: 3 }, (_, i) => `exercise${i + 1}` );
-
 const App: React.FC = () => {
+  const [drillIds, setDrillIds] = useState([]);
+
+  useEffect(() => {
+    fetch('http://localhost:3000/')
+      .then(response => response.json())
+      .then(fetchedDrillIds => setDrillIds(fetchedDrillIds))
+      .catch(error => console.error('Failed to fetch drill IDs:', error));
+  }, []);
+
   return (
     <Router>
       <div className={styles.container}>
