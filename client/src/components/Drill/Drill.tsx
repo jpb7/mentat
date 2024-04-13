@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import DrillBox from './DrillBox';
 import DrillButton from './DrillButton';
-import { DrillObject, DrillProps, DrillTemplate } from 'Types';
+import { DrillObject, DrillTemplate } from 'Types';
 
 //  Map plaintext operators to their Unicode equivalents
 //
@@ -48,24 +49,20 @@ const generateDrill = (template: DrillTemplate): DrillObject => {
   };
 };
 
-const Drill: React.FC<DrillProps> = ({ drillId }) => {
+const Drill: React.FC = () => {
+  const { drillId } = useParams<{ drillId: string }>();
   const [template, setTemplate] = useState<DrillTemplate | null>(null);
   const [drill, setDrill] = useState<DrillObject | null>(null);
   const [showSolution, setShowSolution] = useState(false);
 
   useEffect(() => {
     fetch(`http://localhost:3000/${drillId}`) // TODO: make .env
-      .then(
-        response => response.json()
-      )
-      .then(
-        fetchedTemplate => {
+      .then(response => response.json())
+      .then(fetchedTemplate => {
           setTemplate(fetchedTemplate);
           setDrill(generateDrill(fetchedTemplate));
       })
-      .catch(
-        error => console.error('Failed to retrieve drill: ', error)
-      );
+      .catch(error => console.error('Failed to retrieve drill: ', error));
   }, [drillId]);
 
   const handleNewDrill = () => {

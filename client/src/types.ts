@@ -25,7 +25,7 @@ export type DrillTemplate = {
 };
 
 export type MainMenuProps = {
-  exercises: { path: string; drillId: string }[];
+  drillIds: string[];
 };
 
 export type MenuItemProps = {

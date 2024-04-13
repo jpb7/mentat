@@ -4,12 +4,12 @@ import MenuItem from './MenuItem';
 import { MainMenuProps } from 'Types';
 import styles from './MainMenu.module.css';
 
-const MainMenu: React.FC<MainMenuProps> = ({ exercises }) => {
+const MainMenu: React.FC<MainMenuProps> = ({ drillIds }) => {
   return (
     <div className={styles.menu}>
-      {exercises.map(exercise => (
-        <Link key={exercise.path} to={exercise.path}>
-          <MenuItem label={exercise.drillId} />
+      {drillIds.map(drillId => (
+        <Link key={drillId} to={`/${drillId}`}>
+          <MenuItem label={drillId} />
         </Link>
       ))}
     </div>

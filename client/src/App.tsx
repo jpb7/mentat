@@ -3,11 +3,7 @@ import { BrowserRouter as Router, Link, Route, Routes } from 'react-router-dom';
 import { Drill, MainMenu, TitleBar } from 'Components';
 import styles from './App.module.css';
 
-const n = 3;
-const exercises = Array.from({ length: n }, (_, i) => ({
-  path: `/exercise${i + 1}`,
-  drillId: `exercise${i + 1}`
-}));
+const drillIds = Array.from({ length: 3 }, (_, i) => `exercise${i + 1}` );
 
 const App: React.FC = () => {
   return (
@@ -18,17 +14,9 @@ const App: React.FC = () => {
         </Link>
 
         <Routes>
-          <Route path='/' element={
-            <MainMenu exercises={exercises} />
-          }/>
-          {exercises.map(exercise => (
-            <Route key={exercise.path} path={exercise.path}
-              element={
-                <Drill drillId={exercise.drillId} />
-              }/>
-          ))}
-         </Routes>
-
+          <Route path='/' element={ <MainMenu drillIds={drillIds} /> }/>
+          <Route path='/:drillId' element={ <Drill /> }/>
+       </Routes>
       </div>
     </Router>
   );
